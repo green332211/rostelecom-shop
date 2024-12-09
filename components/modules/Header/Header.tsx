@@ -1,17 +1,28 @@
 'use client'
+import Link from 'next/link'
+
 import Logo from '@/components/elements/Logo'
 import { useLang } from '@/hooks/useLang'
-import Link from 'next/link'
+import Menu from './Menu'
+import { openMenu } from '@/context/modals'
+import { addOverflowHiddenToBody } from '@/lib/utils/common'
 
 const Header = () => {
   const { lang, translations } = useLang()
 
+  const handleOpenMenu = () => {
+    addOverflowHiddenToBody()
+    openMenu()
+  }
+
   return (
     <header className='header'>
       <div className='container header__container'>
-        <button className='btn-reset header__burger'>
+        <button className='btn-reset header__burger' onClick={handleOpenMenu}>
           {translations[lang].header.menu_btn}
         </button>
+
+        <Menu />
 
         <div className='header__logo'>
           <Logo />
@@ -31,22 +42,22 @@ const Header = () => {
 
           <li className='header__links__item'>
             <Link
-              href='/favorites'
-              className='btn-reset header__links__item__btn header__links__item__btn--favorites'
+              href='/comparison'
+              className='btn-reset header__links__item__btn header__links__item__btn--compare'
             />
           </li>
 
           <li className='header__links__item'>
             <Link
-              href='/favorites'
-              className='btn-reset header__links__item__btn header__links__item__btn--favorites'
+              href='/cart'
+              className='btn-reset header__links__item__btn header__links__item__btn--cart'
             />
           </li>
 
-          <li className='header__links__item'>
+          <li className='header__links__item header__links__item--profile'>
             <Link
-              href='/favorites'
-              className='btn-reset header__links__item__btn header__links__item__btn--favorites'
+              href='/profile'
+              className='btn-reset header__links__item__btn header__links__item__btn--profile'
             />
           </li>
         </ul>

@@ -23,6 +23,7 @@
         "allowTemplateLiterals": true
       }
     ],
+    "@next/next/no-img-element": "off",
     "no-trailing-spaces": [2, { "skipBlankLines": false }],
     "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1}],
     "object-curly-spacing": ["error", "always"],
