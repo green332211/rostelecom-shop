@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 
-import Logo from '@/components/elements/Logo'
+import Logo from '@/components/elements/Logo/Logo'
 import { useLang } from '@/hooks/useLang'
 import Menu from './Menu'
 import { openMenu, openSearchModal } from '@/context/modals'
