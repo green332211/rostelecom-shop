@@ -4,17 +4,20 @@ import { handleCloseSearchModal } from '@/lib/utils/common'
 const SearchModal = () => {
   const { lang, translations } = useLang()
 
-  const handleInputFocus = (
-    e: React.FocusEvent<HTMLImageElement | HTMLTextAreaElement, Element>
-  ) => {
+  const handleInputFocus = (e: React.FocusEvent<HTMLElement>) => {
     e.target.classList.add('with_value')
   }
 
   const handleInputBlur = (
-    e: React.FocusEvent<HTMLImageElement | HTMLTextAreaElement, Element>
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLImageElement
+    >
   ) => {
-    if (e.target.value) {
-      return
+    if (
+      e.target instanceof HTMLTextAreaElement ||
+      e.target instanceof HTMLInputElement
+    ) {
+      if (e.target.value) return
     }
 
     e.target.classList.remove('with_value')

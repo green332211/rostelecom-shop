@@ -3,7 +3,7 @@ import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import FooterLinks from './FooterLinks'
 import FooterMobileLink from './FooterMobileLink'
-import Logo from '@/components/elements/Logo'
+import Logo from '@/components/elements/Logo/Logo'
 
 const Footer = () => {
   const { lang, translations } = useLang()

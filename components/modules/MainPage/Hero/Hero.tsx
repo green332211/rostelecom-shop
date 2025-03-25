@@ -10,9 +10,9 @@ import img2 from '@/public/img/orange-t.png'
 import img3 from '@/public/img/violet-t.png'
 import HeroSlide from './HeroSlide'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
+import productSubtitleStyles from '@/styles/product-subtitle/index.module.scss'
 import styles from '@/styles/main-page/index.module.scss'
 import stylesForAd from '@/styles/ad/index.module.scss'
-import productSubtitleStyles from '@/styles/product-subtitle/index.module.scss'
 
 const Hero = () => {
   const { lang, translations } = useLang()
