@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import PagesLayout from '@/components/layouts/PagesLayout'
 import 'bootstrap/dist/css/bootstrap.css'
 import './globalStyles/normalize.css'
 import './globalStyles/globals.css'
@@ -11,7 +12,6 @@ import './globalStyles/cart-popup.css'
 import './globalStyles/footer.css'
 import './globalStyles/slick-theme.css'
 import './globalStyles/slick.css'
-import Layout from '@/components/layouts/Layout'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,11 +23,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return (
-    <html lang='en'>
-      <body>
-        <Layout>{children}</Layout>
-      </body>
-    </html>
-  )
+  return <PagesLayout>{children}</PagesLayout>
 }
