@@ -1,19 +1,23 @@
 'use client'
+import { useUnit } from 'effector-react'
+import { Toaster } from 'react-hot-toast'
 import {
   $showQuickViewModal,
   $showSizeTable,
   closeQuickViewModal,
 } from '@/context/modals'
-import { useUnit } from 'effector-react'
 import Layout from './Layout'
 import {
   closeSizeTableByCheck,
+  handleCloseAuthPopup,
   removeOverflowHiddenFromBody,
 } from '@/lib/utils/common'
+import { $openAuthPopup } from '@/context/auth'
 
 const PagesLayout = ({ children }: { children: React.ReactNode }) => {
   const showQuickViewModal = useUnit($showQuickViewModal)
   const showSizeTable = useUnit($showSizeTable)
+  const openAuthPopup = useUnit($openAuthPopup)
 
   const handleCloseQuickViewModal = () => {
     removeOverflowHiddenFromBody()
@@ -33,10 +37,18 @@ const PagesLayout = ({ children }: { children: React.ReactNode }) => {
           }`}
           onClick={handleCloseQuickViewModal}
         />
+
         <div
           className={`size-table-overlay ${showSizeTable ? 'overlay-active' : ''}`}
           onClick={handleCloseSizeTable}
         />
+
+        <div
+          className={`auth-overlay ${openAuthPopup ? 'overlay-active' : ''}`}
+          onClick={handleCloseAuthPopup}
+        />
+
+        <Toaster position='top-center' reverseOrder={false} />
       </body>
     </html>
   )

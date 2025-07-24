@@ -150,7 +150,7 @@ const Menu = () => {
         />
 
         <button
-          className={`btn reset nav-menu__close ${menuIsOpen ? 'open' : ''}`}
+          className={`btn-reset nav-menu__close ${menuIsOpen ? 'open' : ''}`}
           onClick={handleCloseMenu}
         />
 
